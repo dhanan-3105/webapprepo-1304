@@ -1,0 +1,11 @@
+from tomcat:8.0
+run apt-get -y update && apt-get -y install software-properties-common nano default-jdk default-jre
+copy setenv.sh /usr/local/tomcat/bin/setenv.sh
+copy adf-essentials.zip /usr/local/tomcat/lib/adf-essentials.zip
+copy adf-essentials-client-ear.zip /usr/local/tomcat/lib/adf-essentials-client-ear.zip
+copy javax*.zip /usr/local/tomcat/lib/
+run cd /usr/local/tomcat/lib && ls
+run cd /usr/local/tomcat/lib && unzip -j /usr/local/tomcat/lib/adf-essentials.zip && unzip -j /usr/local/tomcat/lib/adf-essentials-client-ear.zip
+copy javax.mail-api-1.4.6.jar /usr/local/tomcat/lib/javax.mail-api-1.4.6.jar
+copy djwebappadf.war /usr/local/tomcat/webapps/djwebappadf.war
+copy context.xml /usr/local/tomcat/conf/context.xml
